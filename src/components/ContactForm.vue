@@ -66,5 +66,13 @@
   </script>
   
   <style lang="scss" scoped>
-  
+   .container{
+    height: 83vh;
+  }
+  label{
+    color: white;
+  }
+  .form-text{
+    color: white;
+  }
   </style>

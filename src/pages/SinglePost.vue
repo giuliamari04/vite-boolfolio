@@ -1,7 +1,7 @@
 <template>
   <div class="color-1">
     <div class="container">
-      <h1 class="text-light display-5 py-3 my-3">{{ post.title }}</h1>
+      <h1 class="text-light display-5 py-3 py-3">{{ post.title }}</h1>
       <div class="mb-3">
         <!-- <div v-if="count(post.category)>0">
           <span class="badge bg-primary text-decoration-none me-1 ">{{ post.category.name}}</span>
@@ -75,8 +75,11 @@
     border-radius: 20px;
     box-shadow: 5px 5px 40px rgb(215, 154, 255);
   }
+  .container{
+    height: 83vh;
+  }
   .row{
-    height: 54.9vh;
+    height: 69.4vh;
   }
   .color-1 {
   background: rgb(34, 15, 73);

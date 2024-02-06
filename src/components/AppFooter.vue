@@ -18,7 +18,7 @@
   <style lang="scss" scoped>
   footer{
     margin: 0;
-    height:20vh;
+    height:10vh;
     color: white;
     background: rgb(34, 15, 73);
     background: linear-gradient(

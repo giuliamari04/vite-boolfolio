@@ -1,7 +1,7 @@
 <template>
   <main class=" color-1">
     <div class="container">
-       <h1 class="text-light display-5  my-3 ">Post List</h1>
+       <h1 class="text-light display-5 py-3 ">Post List</h1>
     <div class="row d-flex  justify-content-center">
       <div class="col-12 col-md-4 col-lg-3 h-100" v-for="post in store.posts" :key="post.id">
         <AppCard :post="post"></AppCard>
@@ -57,7 +57,7 @@ export default {
 
 <style lang="scss" scoped>
   .container{
-    height: 69.8vh;
+    height: 83vh;
   }
   .row{
     height: 50vh;

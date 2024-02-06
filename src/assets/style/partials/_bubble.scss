@@ -66,9 +66,9 @@
 /* ANIMATIONS */
 
 .x1 {
-    -webkit-animation: animateBubble 25s linear infinite, sideWays 2s ease-in-out infinite alternate;
-	-moz-animation: animateBubble 25s linear infinite, sideWays 2s ease-in-out infinite alternate;
-	animation: animateBubble 25s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    -webkit-animation: animateBubble 25s linear infinite, sideWays 1s ease-in-out infinite alternate;
+	-moz-animation: animateBubble 25s linear infinite, sideWays 1s ease-in-out infinite alternate;
+	animation: animateBubble 25s linear infinite, sideWays 1s ease-in-out infinite alternate;
 	
 	left: -5%;
 	top: 5%;
