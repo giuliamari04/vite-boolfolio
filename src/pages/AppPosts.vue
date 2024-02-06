@@ -1,8 +1,9 @@
 <template>
-  <main class="container">
-    <h1 class="text-primary my-3">Post List</h1>
-    <div class="row">
-      <div class="col-12 col-md-4 col-lg-3" v-for="post in store.posts" :key="post.id">
+  <main class=" color-1">
+    <div class="container">
+       <h1 class="text-light display-5  my-3 ">Post List</h1>
+    <div class="row d-flex  justify-content-center">
+      <div class="col-12 col-md-4 col-lg-3 h-100" v-for="post in store.posts" :key="post.id">
         <AppCard :post="post"></AppCard>
       </div>
     </div>
@@ -19,6 +20,8 @@
         </li>
       </ul>
     </nav>
+    </div>
+   
   </main>
 </template>
 
@@ -53,5 +56,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  /* Stili CSS specifici per il componente */
+  .container{
+    height: 69.8vh;
+  }
+  .row{
+    height: 50vh;
+  }
+  .color-1 {
+  background: rgb(34, 15, 73);
+  background: linear-gradient(
+    200deg,
+    rgba(34, 15, 73, 1) 27%,
+    rgba(15, 7, 39, 1) 57%,
+    rgba(2, 1, 12, 1) 100%
+  );
+}
 </style>
