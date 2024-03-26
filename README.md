@@ -1,4 +1,33 @@
-# .
+## Myportfolio
+# Benvenuti nel mio Portfolio!
+
+Ciao, sono Giulia, un appassionata sviluppatrice web con una passione per la creazione di esperienze digitali coinvolgenti e intuitive. Con un'esperienza ancora da junior nel settore, mi dedico a trasformare idee creative in progetti web straordinari.
+
+## Chi sono?
+
+- 🚀 Creativa e innovativa, mi piace affrontare sfide complesse e trovare soluzioni efficaci.
+- 💻 Esperta in HTML, CSS, JavaScript e altri linguaggi e tecnologie web moderni. Conosco Vue e mi sto studiando React
+- 🌐 Mi vorrei specializzare nello sviluppo front-end e back-end, garantendo prestazioni ottimali e una user experience impeccabile.
+- 🎨 Appassionata di design e UX/UI, mi impegno a creare siti web esteticamente piacevoli e funzionali.
+- 📈 Sempre alla ricerca di nuove tecnologie e tendenze per migliorare continuamente le mie competenze e offrire soluzioni all'avanguardia.
+
+## Cosa offro?
+
+- ✔️ Siti web responsive e ottimizzati per tutti i dispositivi e le piattaforme.
+- ✔️ Interfacce utente intuitive e facili da usare per massimizzare l'engagement degli utenti.
+- ✔️ Soluzioni personalizzate e flessibili per soddisfare le esigenze specifiche dei clienti.
+- ✔️ Assistenza post-lancio e supporto tecnico per garantire il successo a lungo termine dei progetti.
+
+## Contattami
+
+Sono sempre aperta a nuove opportunità di collaborazione e progetti interessanti. Non esitate a contattarmi per discutere delle vostre idee o per qualsiasi altra informazione.
+
+- 📧 Email: [giuliamari04@gmail.com](giuliamari04@gmail.com)
+- 🔗 LinkedIn: [linkedin-giulia-mariano](https://www.linkedin.com/in/giulia-mariano-3a1a052b1/?profileId=ACoAAEsT6-kBPoZ0b8W0FMHdVkm-dAhKvYBFV1I)
+
+Grazie per aver visitato il mio portfolio! Spero di avere l'opportunità di lavorare insieme a voi.
+
+## .
 
 This template should help get you started developing with Vue 3 in Vite.
 
