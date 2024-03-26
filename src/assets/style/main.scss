@@ -8,3 +8,24 @@ $fa-font-path: '../webfonts';
 @import '@fortawesome/fontawesome-free/scss/brands.scss';
 
 @import 'bootstrap/scss/bootstrap';
+
+/* Nascondi la barra di scorrimento */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Imposta la larghezza della barra di scorrimento */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Imposta il colore della barra di scorrimento e del track */
+::-webkit-scrollbar {
+    background-color: #f1f1f1; /* Colore del track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888; /* Colore della barra di scorrimento */
+    border-radius: 5px; /* Bordo arrotondato */
+}
+

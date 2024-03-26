@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg color-1">
     <div class="container">
       <a class="navbar-brand text-light" href="#">Boolfolio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -13,10 +13,7 @@
           </li>
           
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-primary" type="submit">Search</button>
-        </form>
+       
       </div>
     </div>
   </nav>
@@ -49,7 +46,14 @@
   </script>
   
   <style lang="scss" scoped>
-  nav{height: 7vh;}
+  nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    min-height: 8vh;
+    padding: 10px 20px;
+  }
   .nav-link{
     text-transform: uppercase;
   }

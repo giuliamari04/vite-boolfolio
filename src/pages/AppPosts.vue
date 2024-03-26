@@ -1,19 +1,19 @@
 <template>
-  <main class=" color-1">
-    <div class="container">
+  <main class=" color-1 pt-5">
+    <div class="container d-flex flex-column justify-content-center align-items-center">
        <h1 class="text-light display-5 py-3 ">Post List</h1>
-    <div class="row d-flex  justify-content-center">
-      <div class="col-12 col-md-4 col-lg-3 h-100" v-for="post in store.posts" :key="post.id">
+    <div class="row h-auto  d-flex  justify-content-center">
+      <div class="col-12 col-md-4 " v-for="post in store.posts" :key="post.id">
         <AppCard :post="post"></AppCard>
       </div>
     </div>
-    <nav aria-label="..." class="d-flex justify-content-center align-content-center my-4">
+    <nav aria-label="..." class="d-flex justify-content-center py-5">
       <ul class="pagination">
-        <li class="page-item" :class="{'disabled': store.pagination.current_page === 1}">
+        <li class="page-item " :class="{'disabled': store.pagination.current_page === 1}">
           <button class="page-link" :disabled="store.pagination.current_page === 1" @click="getAllPosts(store.pagination.current_page - 1)">Previous</button>
         </li>
         <li class="page-item" v-for="n in store.pagination.last_page" :key="n">
-          <button class="page-link" @click="getAllPosts(n)">{{ n }}</button>
+          <button class="page-link bg-transparent text-light px-3" @click="getAllPosts(n)">{{ n }}</button>
         </li>
         <li class="page-item" :class="{'disabled': store.pagination.current_page === store.pagination.last_page}">
           <button class="page-link" :disabled="store.pagination.current_page === store.pagination.last_page" @click="getAllPosts(store.pagination.current_page + 1)">Next</button>
@@ -57,7 +57,7 @@ export default {
 
 <style lang="scss" scoped>
   .container{
-    height: 83vh;
+    min-height: 100vh;
   }
   .row{
     height: 50vh;

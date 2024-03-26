@@ -1,6 +1,7 @@
 <template>
-    <footer class="text-center d-flex justify-content-center align-items-center ">
-    <p>Giulia's portfolio</p>
+    <footer class="text-center d-flex justify-content-center align-items-center py-3 ">
+    <p>&copy; Boolfolio 2024. <br>Made by Giulia Mariano. <br> <span class="testo-mini">Autorizzo il trattamento dei dati personali nel mio cv-portfolio in base all'art. 13 GDPR 679/16</span></p>
+    
     </footer>
   </template>
   
@@ -18,8 +19,8 @@
   <style lang="scss" scoped>
   footer{
     margin: 0;
-    height:10vh;
     color: white;
+
     background: rgb(34, 15, 73);
     background: linear-gradient(
       200deg,
@@ -27,6 +28,10 @@
       rgba(15, 7, 39, 1) 57%,
       rgba(2, 1, 12, 1) 100%
     );
+
+    .testo-mini{
+      font-size: 0.8em;
+    }
   }
   
   </style>

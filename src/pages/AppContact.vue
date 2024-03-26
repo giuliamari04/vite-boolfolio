@@ -1,5 +1,5 @@
 <template>
-  <div class="color-1">
+  <div class="color-1 mt-5 pt-4">
  <div class="container">
      <h1 class="text-light display-3">Contact us</h1>
     <ContactForm ></ContactForm>

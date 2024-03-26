@@ -5,4 +5,6 @@ export const store = reactive({
   imgPath: 'http://[::1]:5173/storage/app/',
   posts: [],
   technologies: [],
+  filteredPosts:[],
+  isLoading:false,
 })
