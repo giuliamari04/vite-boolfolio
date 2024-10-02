@@ -52,7 +52,7 @@ export default {
 .video-background {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 80vh;
   overflow: hidden;
 }
 

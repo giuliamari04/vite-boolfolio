@@ -7,13 +7,23 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          
-          <li class="nav-item text-light" v-for="item in menu" :key="item.name">
-            <router-link class="nav-link text-light" active-class="active" :to="{name: item.name}">{{ item.label }}</router-link> 
+          <li class="nav-item text-light">
+            <router-link
+            :to="{ name: 'home'}" href="#" class="nav-link text-light">home</router-link>
           </li>
-          
+
+          <li class="nav-item text-light">
+            <router-link :to="{ name: 'home', hash: '#technologies' }" href="#" class="nav-link text-light">technologies</router-link>
+          </li>
+
+          <li class="nav-item text-light">
+            <router-link :to="{ name: 'home', hash: '#projects' }" href="#" class="nav-link text-light">projects</router-link>
+          </li>
+
+          <li class="nav-item text-light">
+            <router-link :to="{ name: 'home', hash: '#contacts' }" href="#" class="nav-link text-light">contacts</router-link>
+          </li>
         </ul>
-       
       </div>
     </div>
   </nav>
@@ -22,6 +32,12 @@
   <script>
     export default {
       name: "AppHeader",
+      props: {
+        scrollToSection: {
+          type: Function,
+          required: true
+        },
+      },
       data(){
         return {
           menu: [
@@ -41,7 +57,8 @@
   
           ]
         }
-      }
+      },
+      
     }
   </script>
   

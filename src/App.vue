@@ -1,6 +1,6 @@
 <template>
-  <AppHeader></AppHeader>
-  <router-view></router-view>
+  <AppHeader :scrollToSection="scrollToSection"></AppHeader>
+  <router-view ref="home"></router-view>
   <AppFooter></AppFooter>
 </template>
 
@@ -16,15 +16,11 @@ export default {
       return {
         store,
       }
-
     },
     components: {
-    
       AppHeader,
-      AppFooter
-
+      AppFooter,
     },
-    
     methods: {
       getApiTest() {
         axios.get(this.store.apiUrl + 'posts').then((res) => {
@@ -32,6 +28,9 @@ export default {
           
         });
       },
+      scrollToSection(section) {
+      this.$refs.home.scrollToSection(section); // Chiamata al metodo di Home
+    }
     },
     mounted() {
       this.getApiTest();

@@ -2,10 +2,10 @@
      
         <router-link :to="{ name: 'single-post', params: { slug: post.slug || ''} }">
           <div class="card d-flex justify-content-between border-0 p-1 bg-transparent position-relative h-auto">
-      <img :src="`${store.imgPath}images/${post.title}.png`" :alt="post.title" class="card-top"> 
+      <!-- <img :src="`${store.imgPath}images/${post.name}.png`" :alt="post.title" class="card-top">  -->
       <!-- <p class="card-text text-light ">{{ post.body.substring(0, 80) + '...' }}</p> -->
       <div class="position-absolute d-flex justify-content-center align-items-center align-content-center myoverlay">
-       <h5  class="btn text-light  my-1">{{ post.title }}</h5> 
+       <h5  class="btn text-light  my-1">{{ post.name }}</h5> 
       </div>
       </div>
     </router-link>

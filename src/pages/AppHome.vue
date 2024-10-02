@@ -2,16 +2,19 @@
   <div>
     <AppHero />
     <!-- tecnologie -->
-    <div class="background color-1">
+    <div id="technologies" class="background color-1 ">
       <div class="content content-overlay">
         <div class="h-100">
           <div
             class="row w-100 d-flex justify-content-center align-content-center align-items-center flex-column"
           >
             <div class="col m-5 text-center">
-              <h2 class="text-light display-4">
+              <h2 class="text-light display-4 mt-5">
                 <span class="fw-medium">Tecnologie</span> con cui lavoro
               </h2>
+              <div v-if="store.technologies.length === 0">
+                Nessuna tecnologia trovata.
+              </div>
             </div>
             <div class="col w-100 mt-5">
               <div class="w-100">
@@ -24,7 +27,7 @@
                     class="my-icon"
                   >
                     <img
-                      :src="`${store.imgPath}image/${technology.name}.png`"
+                      :src="`${technology.url_logo}`"
                       :alt="technology.name"
                       class="d-block w-100"
                       :class="{
@@ -33,9 +36,10 @@
                           technology.name === 'PHP',
                       }"
                     />
-                    <span class="name-icon d-flex justify-content-center fst-italic ">{{
-                      technology.name
-                    }}</span>
+                    <span
+                      class="name-icon d-flex justify-content-center fst-italic"
+                      >{{ technology.name }}</span
+                    >
                   </div>
 
                   <div
@@ -44,7 +48,7 @@
                     class="my-icon"
                   >
                     <img
-                      :src="`${store.imgPath}image/${technology.name}.png`"
+                      :src="`${technology.url_logo}`"
                       :alt="technology.name"
                       class="d-block w-100"
                       :class="{
@@ -53,9 +57,10 @@
                           technology.name === 'PHP',
                       }"
                     />
-                    <span class="name-icon d-flex justify-content-center fst-italic ">{{
-                      technology.name
-                    }}</span>
+                    <span
+                      class="name-icon d-flex justify-content-center fst-italic"
+                      >{{ technology.name }}</span
+                    >
                   </div>
                 </div>
               </div>
@@ -83,7 +88,7 @@
             <h3>Backend</h3>
             <p>
               sono in grado si sviluppare anche pagine lato backend utilizzando
-              linguaggio php su Larvale
+              linguaggio php con Larval come Framework
             </p>
           </div>
         </div>
@@ -91,55 +96,56 @@
     </div>
 
     <!-- progetti -->
-    <div class="background2 color-3">
-      <div class="content content-overlay">
-        <form action="">
-          <h2 class="display-4 mt-5 text-center py-5">Progetti</h2>
-          <div class="d-flex w-100 justify-content-center mb-5">
-            <div class="px-3">
-              <input
-                type="checkbox"
-                name="frontend"
-                id="frontend"
-                value="true"
-                v-model="showFrontend"
-                @change="filteredPosts"
-              />
-              <label for="frontend" class="px-2 fs-4 ">Front-end</label>
-              </div>
-              <input
-                type="checkbox"
-                name="backend"
-                id="backend"
-                value="true"
-                v-model="showBackend"
-                @change="filteredPosts"
-              />
-              <label for="backend" class="px-2 fs-4">Back-end</label>
-           
-          </div>
-          <Loader v-if="store.isLoading === true"/>
-          <div v-if="store.isLoading === false"
-            class="d-flex flex-wrap align-items-center align-content-center justify-content-center px-3"
+    <div id="projects" class="background2 color-3">
+      <div>
+        <div
+          class="content content-overlay d-flex justify-content-center flex-column"
+        >
+        <h2 class="display-4 text-center pb-5 text-light">Progetti</h2>
+          <div
+            class="d-flex flex-column align-items-center align-content-center justify-content-center px-3 container-projects"
           >
-            <div v-for="post in store.filteredPosts" :key="post.id">
-              <newCards :post="post"></newCards>
+            <div
+              v-for="post in store.posts"
+              :key="post.id"
+              class="container p-3"
+            >
+              <!-- <newCards :post="post"></newCards>  -->
+              <router-link
+                :to="{ name: 'single-post', params: { slug: post.slug || '' } }"
+                class="text-light text-decoration-none"
+              >
+                <div
+                  class="d-flex flex-wrap  justify-content-between px-5 py-3 project"
+                >
+                  <h3>{{ post.name }}</h3>
+                  <span
+                    class="text-center d-flex align-items-center align-content-center justify-content-center"
+                  >
+                    {{
+                      post.description.length > 255
+                        ? post.description.substring(0, 255) + "..."
+                        : post.description
+                    }}</span
+                  >
+                </div>
+              </router-link>
             </div>
           </div>
-        </form>
-
-        <!-- <div
+          <!-- <div
           class="d-flex flex-column align-items-center align-content-center card-container"
         >
           <div v-for="post in store.posts" :key="post.id">
             <AppCardsAnimation :post="post"></AppCardsAnimation>
           </div>
          -->
+        </div>
       </div>
     </div>
 
     <!-- github -->
     <div class="background color-4">
+      <div id="contacts">
       <video autoplay muted loop id="video-background3" class="filter-video">
         <source
           src="/src/assets/images/Graph Background video _ Footage _ Screensaver.mp4"
@@ -151,11 +157,11 @@
         <div
           class="d-flex justify-content-center align-items-center flex-column align-content-center h-100"
         >
-          <h2 class="display-3 px-5">Scopri di più sui miei progetti su</h2>
-
+          <h2 class="display-3 px-5">Scopri di più sui miei progetti e su di me</h2>
+          <!-- github link -->
           <a
             href="https://github.com/giuliamari04"
-            class="text-light text-decoration-none fs-1 d-flex py-5 text-git"
+            class="text-light text-decoration-none fs-1 d-flex py-3 text-git"
           >
             <div class="icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
@@ -166,8 +172,27 @@
             </div>
             github.com/giuliamari04
           </a>
+          <!-- linkedin link -->
+          <a
+            href="https://www.linkedin.com/in/giulia-mariano-3a1a052b1"
+            class="text-light text-decoration-none fs-1 d-flex py-3 text-git"
+          >
+            <div class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+    <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
+</svg>
+            </div>
+            linkedin giulia mariano
+          </a>
+          <!-- curriculum -->
+          <div>
+            <a href="/src/assets/docs/Giulia Mariano.pdf" download="Giulia Mariano.pdf" class=" link-light fs-4">
+              Scarica il mio CV
+            </a>
+          </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -197,26 +222,44 @@ export default {
       showBackend: false,
     };
   },
+  watch: {
+    '$route': 'scrollToHash' // Watch for route changes
+  },
   methods: {
     getAllTechnologies() {
-      axios.get(this.store.apiUrl + "technologies").then((res) => {
-        console.log(res.data);
-        this.store.technologies = res.data.results;
-      });
+      axios
+        .get(this.store.apiUrl + "technologies")
+        .then((res) => {
+          console.log("technologies");
+          console.log(res.data);
+          if (res.data.results) {
+            this.store.technologies = res.data.results;
+          } else {
+            this.store.technologies = res.data;
+          }
+          console.log(this.store.technologies); // Verifica se i dati sono corretti
+        })
+        .catch((error) => {
+          console.error("Errore durante il recupero delle tecnologie:", error);
+        });
     },
-    getAllPosts(page) {
-      axios.get(this.store.apiUrl + "posts?page=" + page).then((res) => {
-        console.log(res.data);
-        this.store.posts = this.store.posts.concat(res.data.results.data);
-        this.store.pagination = res.data.results; // Assume che il backend restituisca i dati della paginazione
 
-        if (res.data.results.next_page_url) {
-          this.getAllPosts(page + 1);
-        } else{
-          this.filteredPosts();
-        }
-      });
-      
+    getAllPosts(page) {
+      axios
+        .get(this.store.apiUrl + "posts")
+        .then((res) => {
+          console.log("posts");
+          console.log(res.data);
+          if (res.data.results) {
+            this.store.posts = res.data.results;
+          } else {
+            this.store.posts = res.data;
+          }
+          console.log(this.store.posts); // Verifica se i dati sono corretti
+        })
+        .catch((error) => {
+          console.error("Errore durante il recupero dei posts:", error);
+        });
     },
 
     filteredPosts() {
@@ -224,38 +267,48 @@ export default {
       console.log(this.store.filteredPosts);
       this.store.isLoading = true;
       this.store.filteredPosts = [];
-  try {
-    if (this.showFrontend === true && this.showBackend === false) {
-      this.store.filteredPosts = this.store.posts.filter(
-        (post) => post.category_id === 1
-      );
-    } else if (this.showBackend === true && this.showFrontend === false) {
-      this.store.filteredPosts = this.store.posts.filter(
-        (post) => post.category_id === 2
-      );
-    } else if (this.showFrontend === true && this.showBackend === true) {
-      this.store.filteredPosts = this.store.posts.filter(
-        (post) => post.category_id === 3
-      );
-    } else if (this.showFrontend === false && this.showBackend === false) {
-      this.store.filteredPosts = this.store.posts;
-      console.log(`ci passo`);
-    } else {
-      this.store.filteredPosts = this.store.posts;
+      try {
+        if (this.showFrontend === true && this.showBackend === false) {
+          this.store.filteredPosts = this.store.posts.filter(
+            (post) => post.category_id === 1
+          );
+        } else if (this.showBackend === true && this.showFrontend === false) {
+          this.store.filteredPosts = this.store.posts.filter(
+            (post) => post.category_id === 2
+          );
+        } else if (this.showFrontend === true && this.showBackend === true) {
+          this.store.filteredPosts = this.store.posts.filter(
+            (post) => post.category_id === 3
+          );
+        } else if (this.showFrontend === false && this.showBackend === false) {
+          this.store.filteredPosts = this.store.posts;
+          console.log(`ci passo`);
+        } else {
+          this.store.filteredPosts = this.store.posts;
+        }
+      } finally {
+        this.store.isLoading = false;
+        console.log(this.store.filteredPosts);
+      }
+    },
+    scrollToHash() {
+      // Check if there is a hash in the URL
+      if (this.$route.hash) {
+        const element = document.querySelector(this.$route.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
     }
-  } finally {
-    this.store.isLoading = false;
-    console.log(this.store.filteredPosts);
-  }
-},
-
   },
   created() {
     this.getAllTechnologies();
-    this.getAllPosts(1);
-    this.filteredPosts();
+    this.getAllPosts();
+    //this.filteredPosts();
   },
-  
+  mounted() {
+    this.scrollToHash();
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -264,7 +317,7 @@ export default {
 .background {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 70vh;
   overflow: hidden;
 }
 .background2 {
@@ -323,6 +376,7 @@ export default {
     $purple3 57%,
     $purple4 100%
   );
+  // height: 100vh;
 }
 
 .color-2 {
@@ -333,6 +387,7 @@ export default {
     $purple5 57%,
     $purple6 100%
   );
+  height: 100vh;
 }
 
 .color-3 {
@@ -395,6 +450,20 @@ export default {
   transition: transform 2s;
   animation: scroll 50s linear infinite;
 }
+.container-projects {
+  height: 60vh;
+  width: 100%;
+  padding-top: 420px;
+  overflow-y: scroll;
+  .project {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .project:hover {
+    background-color: rgba(66, 66, 66, 0.3);
+    cursor: pointer;
+  }
+}
+
 @keyframes scroll {
   0% {
     transform: translate(0px);
@@ -441,47 +510,47 @@ export default {
   padding: 60px;
   z-index: 2;
 }
-@media screen and (max-width:1024px) {
+@media screen and (max-width: 1024px) {
   .div-1 {
-  background-color: rgb(34, 15, 73);
-  width: 80%;
-  position: absolute;
-  top: 60%;
-  left: 10%;
-  padding: 60px;
-}
+    background-color: rgb(34, 15, 73);
+    width: 80%;
+    position: absolute;
+    top: 60%;
+    left: 10%;
+    padding: 60px;
+  }
 
-.div-2 {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 80%;
-  position: absolute;
-  bottom: 50%;
-  right: 10%;
-  padding: 60px;
-  z-index: 2;
-}
+  .div-2 {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 80%;
+    position: absolute;
+    bottom: 50%;
+    right: 10%;
+    padding: 60px;
+    z-index: 2;
+  }
 
-.background-fullstack {
-  height: 120vh;
-  overflow: hidden;
-}
+  .background-fullstack {
+    height: 120vh;
+    overflow: hidden;
+  }
 }
 /* Stile generale per le checkbox */
 input[type="checkbox"] {
-  display: none; 
+  display: none;
 }
 
 /* Stile del testo per le checkbox non selezionate */
 input[type="checkbox"] + label {
-  background-color: white; 
+  background-color: white;
   color: $purple8;
-  padding: 5px 10px; 
-  border-radius: 5px; 
-  cursor: pointer; 
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 input[type="checkbox"] + label:hover {
-  background-color: rgb(172, 171, 171); 
+  background-color: rgb(172, 171, 171);
 }
 
 /* Stile del testo per le checkbox selezionate */
@@ -493,16 +562,15 @@ input[type="checkbox"]:checked + label {
 
 /* Aggiungi spazio tra il testo e il bordo della checkbox */
 input[type="checkbox"] + label::before {
-  content: '';
+  content: "";
   display: inline-block;
-  width: 1px; 
-  height: 1px; 
-
+  width: 1px;
+  height: 1px;
 }
-.text-git{
- transition: all 1s;
+.text-git {
+  transition: all 1s;
 }
-.text-git:hover{
+.text-git:hover {
   transform: scale(1.1);
   text-decoration: underline !important;
 }
