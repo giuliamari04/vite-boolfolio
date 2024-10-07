@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-lg color-1">
     <div class="container">
-      <a class="navbar-brand text-light" href="#">Boolfolio</a>
+      <router-link class="navbar-brand text-light" :to="{ name: 'home', hash: '#home'}" href="#">Boolfolio</router-link>
       <button class="navbar-toggler bg-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="my-toggler-icon">
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 64 64">
