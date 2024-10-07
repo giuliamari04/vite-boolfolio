@@ -13,12 +13,18 @@
         </div>
 
         <!-- </div> -->
-        <div class="row py-4 w-100 d-flex">
+        <div class="row py-4 w-100 d-lg-flex">
 
           <!-- prima colonna -->
-          <div class="col-7 img-show">
+          <div class=" col-lg-6 col-md-8 m-auto img-show px-5">
             <section id="page" class="video-container">
-              <h3 class="w-100 pb-4 text-light">Preview</h3>
+              <div class="w-100 d-flex justify-content-between align-content-center flex-wrap">
+                 <h3 class="pb-4 text-light">Preview</h3>
+                 <span class="text-light pb-4 pt-2 link-repo">
+                   <a :href=" post.link_repo " target="_blank" class=" text-light">Link repo {{ post.name }}</a>
+                 </span>
+              </div>
+             
               <div class="pb-5 video-wrapper">
                 <video
                   autoplay
@@ -31,16 +37,22 @@
             </section>
           </div>
           <!-- colonna descrizioni testuali -->
-          <div class="col-3 p-5">
-            <h3 class="text-light">Descriprion</h3>
-            <p class="text-light">
-              {{ post.description }}
-            </p>
+          <div class=" col-lg col-md-8 m-auto px-5 ">
+            <h3 class="text-light pt-5">Description</h3>
+            <div class="description overflow-scroll mt-3">
+               <div>
+              <p class="text-light">
+              {{ post.description }} 
+              </p>
+            </div>
+            </div>
+           
             <h3 class="text-light py-2">Technologies</h3>
-            <div>
+            <!-- div technologies -->
+            <div class="d-flex flex-wrap">
               <span
                 v-for="technology in post.technologies"
-                class="badge bg-secondary mx-1 p-2"
+                class="badge bg-secondary mx-1 p-2 my-1"
               >
                 {{ technology.name }}
               </span>
@@ -130,7 +142,7 @@ export default {
   }
 }
 .row {
-  height: 69.4vh;
+  min-height: 69.4vh;
   .img-show {
     max-height: 50vh;
     // overflow: hidden;
@@ -176,5 +188,24 @@ export default {
       width: 90%;
     }
   }
+}
+.description{
+  height: 35vh;
+  padding: 20px 10px;
+  background-color: rgba(255, 255, 255, 0.185);
+  border-radius: 10px;
+}
+.link-repo{
+  a{
+    text-decoration: none;
+  }
+
+}
+.link-repo:hover{
+  text-decoration: underline;
+  
+}
+@media screen and (max-width: 767px) {
+  
 }
 </style>

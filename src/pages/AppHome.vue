@@ -74,10 +74,11 @@
     <div class="background-fullstack color-2">
       <div class="content content-overlay">
         <div class="h-100">
-          <h2 class="text-light py-5 text-center display-4">
+          <h2 class="text-light py-5 text-center mx-3 display-4">
             Sono una sviluppatrice <span class="fw-medium">FullStack</span>
           </h2>
-          <div class="div-1 border-fluid">
+          <div class="pt-4">
+            <div class="div-1 border-fluid">
             <h3>Frontend</h3>
             <p>
               sono in grado si sviluppare pagine lato frontend, utilizzando
@@ -91,57 +92,44 @@
               linguaggio php con Larval come Framework
             </p>
           </div>
+          </div>
+          
         </div>
       </div>
     </div>
 
     <!-- progetti -->
     <div id="projects" class="background2 color-3">
-      <div>
-        <div
-          class="content content-overlay d-flex justify-content-center flex-column"
-        >
-        <h2 class="display-4 text-center pb-5 text-light">Progetti</h2>
-          <div
-            class="d-flex flex-column align-items-center align-content-center justify-content-center px-3 container-projects"
-          >
-            <div
-              v-for="post in store.posts"
-              :key="post.id"
-              class="container p-3"
-            >
-              <!-- <newCards :post="post"></newCards>  -->
-              <router-link
-                :to="{ name: 'single-post', params: { slug: post.slug || '' } }"
-                class="text-light text-decoration-none"
-              >
-                <div
-                  class="d-flex flex-wrap  justify-content-between px-5 py-3 project"
-                >
-                  <h3>{{ post.name }}</h3>
-                  <span
-                    class="text-center d-flex align-items-center align-content-center justify-content-center"
-                  >
-                    {{
-                      post.description.length > 255
-                        ? post.description.substring(0, 255) + "..."
-                        : post.description
-                    }}</span
-                  >
-                </div>
-              </router-link>
-            </div>
+  <div class="content content-overlay d-flex flex-column justify-content-center align-content-center align-items-center pt-5">
+    <div class="d-flex flex-column justify-content-center align-content-center align-items-center co-container-projects">
+      <h2 class="display-4 text-center pb-4 text-light">Projects</h2>
+
+      <!-- Container per i progetti con altezza 80vh e scrolling -->
+      <div class="container-projects" style="height: 80vh; overflow-y: auto; width: 100%; max-width: 1200px; padding: 0 20px;">
+        <div class="d-flex flex-column align-items-center all-projects w-100">
+          <!-- singoli div progetti -->
+          <div v-for="post in store.posts" :key="post.id" class="project-card container py-3 mb-3 shadow-sm rounded">
+            <router-link :to="{ name: 'single-post', params: { slug: post.slug || '' } }" class="text-light text-decoration-none w-100">
+              <div class="d-flex flex-wrap justify-content-between align-items-center px-3 project">
+                <h3 class="project-title">{{ post.name }}</h3>
+                <span class="project-description text-light">
+                  Descrizione: 
+                  {{
+                    post.description.length > 100
+                      ? post.description.substring(0, 100) + "..."
+                      : post.description
+                  }}
+                </span>
+              </div>
+            </router-link>
           </div>
-          <!-- <div
-          class="d-flex flex-column align-items-center align-content-center card-container"
-        >
-          <div v-for="post in store.posts" :key="post.id">
-            <AppCardsAnimation :post="post"></AppCardsAnimation>
-          </div>
-         -->
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+
 
     <!-- github -->
     <div class="background color-4">
@@ -157,11 +145,11 @@
         <div
           class="d-flex justify-content-center align-items-center flex-column align-content-center h-100"
         >
-          <h2 class="display-3 px-5">Scopri di più sui miei progetti e su di me</h2>
+          <h2 class="display-3 px-5 text-sm-center text-md-start">Scopri di più sui miei progetti e su di me</h2>
           <!-- github link -->
           <a
             href="https://github.com/giuliamari04"
-            class="text-light text-decoration-none fs-1 d-flex py-3 text-git"
+            class="text-light text-decoration-none d-flex py-3 text-git"
           >
             <div class="icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
@@ -175,7 +163,7 @@
           <!-- linkedin link -->
           <a
             href="https://www.linkedin.com/in/giulia-mariano-3a1a052b1"
-            class="text-light text-decoration-none fs-1 d-flex py-3 text-git"
+            class="text-light text-decoration-none d-flex py-3 text-git"
           >
             <div class="icon">
               <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
@@ -323,9 +311,8 @@ export default {
 .background2 {
   position: relative;
   width: 100%;
-  height: 108vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  min-height: 108vh;
+  overflow: hidden;
 }
 .filter-video {
   filter: grayscale(20%) brightness(50%);
@@ -334,7 +321,7 @@ export default {
 .background-fullstack {
   position: relative;
   width: 100%;
-  height: 60vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 /* Nascondi la barra di scorrimento */
@@ -450,19 +437,56 @@ export default {
   transition: transform 2s;
   animation: scroll 50s linear infinite;
 }
-.container-projects {
-  height: 60vh;
-  width: 100%;
-  padding-top: 420px;
-  overflow-y: scroll;
-  .project {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  .project:hover {
-    background-color: rgba(66, 66, 66, 0.3);
-    cursor: pointer;
-  }
+
+/* Stili per il titolo */
+h2.display-4 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 10px; /* Aggiungi un piccolo padding */
 }
+
+/* Container generale dei progetti */
+.container-projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto; /* Permetti lo scrolling verticale */
+  width: 100%;
+  margin-top: 0; /* Rimuovi margine superiore */
+}
+
+/* Stili per le card dei singoli progetti */
+.project-card {
+  background-color: #0707074f; /* Sfondo delle card dei progetti */
+  border-radius: 8px;
+  width: 100%;
+  max-width: 1000px; /* Limita la larghezza delle card */
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: scale(1.02); /* Aumenta leggermente la dimensione al passaggio del mouse */
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-right: 20px;
+}
+
+.project-description {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Aggiungi padding e margini per migliorare il layout */
+.container {
+  padding: 20px;
+}
+
+
+
 
 @keyframes scroll {
   0% {
@@ -496,7 +520,7 @@ export default {
   background-color: rgb(34, 15, 73);
   width: 30%;
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 10%;
   padding: 60px;
 }
@@ -505,11 +529,82 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
   width: 30%;
   position: absolute;
-  bottom: 30%;
+  bottom: 20%;
   right: 10%;
   padding: 60px;
   z-index: 2;
 }
+/* Design per tablet e schermi medi */
+@media (max-width: 992px) {
+  .project-title {
+    font-size: 1.3rem;
+    margin-right: 10px;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+  .container-projects {
+    margin-top: 10px; /* Riduci lo spazio tra il titolo e il primo progetto */
+  }
+
+}
+
+/* Design per dispositivi mobili (schermi piccoli) */
+@media (max-width: 768px) {
+  /* Imposta i progetti in colonna e centrati */
+  .project-card {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .project-title {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  .project-description {
+    font-size: 0.85rem;
+  }
+
+  /* Riduci la dimensione del titolo per i progetti */
+  h2.display-4 {
+    font-size: 2rem;
+  }
+  .container-projects {
+    margin-top: 10px; /* Mantieni lo spazio ridotto sotto il titolo */
+  }
+  .text-git {
+  font-size: 1.3rem !important;
+  }
+}
+
+/* Design per schermi molto piccoli */
+@media (max-width: 576px) {
+  /* Ulteriore riduzione delle dimensioni dei testi */
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .project-description {
+    font-size: 0.8rem;
+  }
+
+  h2.display-4 {
+    font-size: 1.75rem;
+  }
+
+  .container-projects {
+    padding: 0 10px;
+  }
+ 
+  .text-git {
+  font-size: 1.3rem;
+  }
+}
+
+
 @media screen and (max-width: 1024px) {
   .div-1 {
     background-color: rgb(34, 15, 73);
@@ -531,10 +626,12 @@ export default {
   }
 
   .background-fullstack {
-    height: 120vh;
+    min-height: 180vh;
     overflow: hidden;
   }
+
 }
+
 /* Stile generale per le checkbox */
 input[type="checkbox"] {
   display: none;
@@ -569,6 +666,7 @@ input[type="checkbox"] + label::before {
 }
 .text-git {
   transition: all 1s;
+  font-size: 2.5rem;
 }
 .text-git:hover {
   transform: scale(1.1);

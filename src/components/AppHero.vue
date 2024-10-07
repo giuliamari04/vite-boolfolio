@@ -1,7 +1,7 @@
  <template>
   
  <!-- hero -->
- <div class="video-background ">
+ <div id="home" class="video-background ">
     <video autoplay muted loop id="video-background1" class="filter-video">
       <source
         src="/src/assets/images/Isometric Apps Development Background video _ Footage _ Screensaver.mp4"
@@ -12,7 +12,7 @@
     <div class="content content-overlay">
       <div class="d-flex justify-content-center align-items-center align-content-center h-100">
         <div class="container h-100">
-          <div class="row d-flex h-100">
+          <div class="row d-flex h-100 pt-5">
             <div
               class="col-8 d-flex justify-content-center flex-column text-light my-sm-container"
             >
@@ -52,7 +52,7 @@ export default {
 .video-background {
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: 90vh;
   overflow: hidden;
 }
 
@@ -107,8 +107,9 @@ export default {
   background: rgba(0, 0, 0, 0.3); /* Aggiungi una sfumatura in overlay */
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (max-width: 1399px) {
   .my-sm-container{
+   // padding-top: 60px;
     margin: auto;
     margin: 0;
     display: flex;
@@ -117,8 +118,8 @@ export default {
     text-align: center !important;
   }
   .profile-picture {
-  width: 250px;
-  height: 250px;
+  width: 220px;
+  height: 220px;
   padding-bottom: 80px;
 }
 }
